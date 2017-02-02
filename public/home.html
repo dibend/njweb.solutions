@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NJ Web Solutions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="nj.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+  function hoverPop() {
+    $('[data-toggle="popover"]').popover({
+      placement: 'auto',
+      trigger: 'hover',
+      html:true
+    });
+  }
+
+  $(document).ready(hoverPop);
+
+  function email() {
+    window.location = "mailto:contact@njweb.solutions";
+  }
+
+  function call() {
+    window.location = "tel:908-577-6850";
+  }
+
+  //who needs JSX
+  var homeText = `
+  <h1>NJ Web Solutions</h1>
+  <br/>
+  <h2>Bridge the gap between your business and the Cloud...
+  <br/><br/>
+  <h3>Technical Solutions for all your Business Needs.</h3>
+  <br/><br/>
+  NJ Web Solutions provides a full package of technical services and support so you know who to contact when you need something done
+  <br/><br/><br/>
+  <div class="aq">
+  Offering a wide range of Web, Software, and IT services
+    <br/>&nbsp;
+  </div>`;
+
+  var webText = `
+  <h1>Web Services<h1/>
+  <h3>Design&nbsp;&rarr; Development&nbsp;&rarr; Hosting&nbsp&rarr; Security&nbsp;&rarr; Support</h3>
+  <br/>
+  NJ Web Solutions provides a full range of web services so you know who to turn to for help with your web products
+  <br/><br/>
+  Offering design, development, hosting, webmastering, security services, and support for websites or webapps
+  <br/><br/>
+  <div class="aq">
+    Packaged deals save you time and money
+    <br/>&nbsp;
+  </div>`;
+
+  var appsText = `
+  <h1>Application Development<h1/>
+  <h3>iOS &bull; Android &bull; Smart TV &bull; Alexa &bull; Desktop</h3>
+  <br/>
+  NJ Web Solutions is capable of delivering any application you have in mind
+  <br/><br/>
+  Pricing and time to develop varies with complexity
+  <br/>&nbsp;`;
+
+  var securityText = `
+  <h1>Security</h1>
+  <h3>Assessment. Prevention. Monitoring. Support.</h3>
+  <br/>
+  NJ Web Solutions can help you take steps to prevent a wide range of cyber attacks
+  <br/><br/>
+  <div class="aq">
+    Don't leave your business vulnerable
+    <br/>&nbsp;
+  </div>`;
+
+  var hostingText = `
+  <h1>Hosting</h1>
+  <br/>
+  NJ Web Solutions offers fair and competetively priced hosting solutions for fast, easy, and secure access to your website, webapp, or API
+  <br/><br/>
+  <div class="aq">
+    Pay less to host your website
+    <br/>&nbsp;
+  </div>`;
+
+  var backupsText = `
+  <h1>Backups</h1>
+  <br/>
+  Never worry about data loss or leakage with Advanced Backup Solutions
+  <br/><br/>
+  NJ Web Solutions takes all the necessary steps to secure your data from redundancy to encryption
+  <br/><br/>
+  <div class="aq">
+    Don't risk losing or leaking your precious data
+    <br/>&nbsp;
+  </div>`;
+
+  var consultingText = `
+  <h1>Consulting</h1>
+  <br/>
+  NJ Web Solutions can finish your new or exisiting software project faster and for less by leveraging the latest open source technologies
+  <br/><br/>
+  <div class="aq">
+    Have less code to mantain and pay less
+    <br/>&nbsp;
+  </div>`;
+
+  function home() {
+    $("#pageText").html(homeText);
+    $(".active").attr('class', '');
+    $("#homeNav").attr('class', 'active');
+    hoverPop();
+    history.pushState(null, null, '/');
+    nextPage = function() { 
+      web();
+    };
+    prevPage = function() { 
+      consulting();
+    };
+  }
+
+  function web() {
+    $("#pageText").html(webText);
+    $(".active").attr('class', '');
+    $("#webNav").attr('class', 'active');
+    hoverPop();
+    history.pushState(null, null, '/web');
+    nextPage = function() { 
+      apps();
+    };
+    prevPage = function() { 
+      home();
+    };
+  }
+
+  function apps() {
+    $("#pageText").html(appsText);
+    $(".active").attr('class', '');
+    $("#appsNav").attr('class', 'active');
+    hoverPop();
+    history.pushState(null, null, '/apps');
+    nextPage = function() { 
+      security();
+    };
+    prevPage = function() { 
+      web();
+    };
+  }
+
+  function security() {
+    $("#pageText").html(securityText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/security');
+    nextPage = function() { 
+      hosting();
+    };
+    prevPage = function() { 
+      apps();
+    };
+  }
+
+  function hosting() {
+    $("#pageText").html(hostingText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/hosting');
+    nextPage = function() { 
+      backups();
+    };
+    prevPage = function() { 
+      security();
+    };
+  }
+
+  function backups() {
+    $("#pageText").html(backupsText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/backups');
+    nextPage = function() { 
+      consulting();
+    };
+    prevPage = function() { 
+      hosting();
+    };
+  }
+
+  function consulting() {
+    $("#pageText").html(consultingText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/consulting');
+    nextPage = function() { 
+      home();
+    };
+    prevPage = function() { 
+      backups();
+    };
+  }
+
+  </script>
+
+  <style>
+  body {
+    font-family: 'Aldrich';
+    background: url(background.jpg);
+  }
+  h1, h2, h3, .navbar-brand, .popover {
+    font-weight: bold;
+  }
+  h3, #lang {
+    color: white;
+  }
+  h1, .aq, .navbar-inverse .navbar-brand {
+    color: aqua;
+  }
+  h2, .container-fluid {
+    color:lightgray
+  }
+  #pageText, .container, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus{
+    background-color:rgba(0, 0, 0, 0.8);
+  }
+  a, a:hover, a:focus, .popover {
+    color: black;
+  }
+  #logo {
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+  }
+  #pageText {
+    max-width: 95%;
+  }
+  .pager {
+    margin: 0 auto;
+    max-width: 95%;
+  }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" onclick="home();">NJ Web Solutions</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li id="homeNav" class="active"><a onclick="home();">Home</a></li>
+        <li id="webNav"><a onclick="web();">Web</a></li>
+        <li id="appsNav"><a onclick="apps();">Apps</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button">More
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a onclick="security();">Security</a></li>
+            <li><a onclick="hosting();">Hosting</a></li>
+            <li><a onclick="backups();">Backups</a></li>
+            <li><a onclick="consulting();">Consulting</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br/>
+  <div class="container-fluid img-rounded" id="pageText" style="font-size:20px;">
+    <script>
+    switch(location.pathname) {
+      case '/web':
+        web();
+        break;
+      case '/apps':
+        apps();
+        break;
+      case '/security':
+        security();
+        break;
+      case '/hosting':
+        hosting();
+        break; 
+      case '/backups':
+        backups();
+        break;
+      case '/consulting':
+        consulting();
+        break;
+      default:
+        home();
+    }
+    </script>
+  </div>
+  <br/>
+  <ul class="pager">
+    <li class="previous" onclick="prevPage();"><a onclick="rollTop();">&ensp;<span class="glyphicon glyphicon-step-backward"></span>&ensp;</a></li>
+    <li class="next" onclick="nextPage();"><a onclick="rollTop();">&ensp;<span class="glyphicon glyphicon-step-forward"></span>&ensp;</a></li>
+  </ul>
+  <br/><br/><br/><br/>
+  <nav class="navbar-fixed-bottom navbar-inverse">
+    &ensp;&ensp;&ensp;
+    <a data-toggle="popover" data-content="<div onclick='email()'>contact@njweb.solutions</div>" class="btn btn-default" onclick="email()">
+      <span class="glyphicon glyphicon-envelope"></span> Email
+    </a>&nbsp;
+    <a data-toggle="popover" data-content="<div onclick='call()'>908-577-6850</div>" class="btn btn-default" onclick="call()">
+      <span class="glyphicon glyphicon-earphone"></span> Call
+    </a>
+    &ensp;&ensp;&ensp;
+    <var id="lang">jQuery</var>
+    <img alt="" id="logo" src="nj.png" height="60" width="60"/>
+  </nav>
+ 
+  <script>
+  function rollTop() {
+    $('html, body').animate({
+      scrollTop:$('#pageText').offset().top
+    }, 500);
+  }
+
+  function changeTitle() {
+    if(document.title) {
+      document.title = '';
+    } else {
+      document.title = 'NJ Web Solutions';
+    }
+  }
+  
+  var langs = ['jQuery', 'HTML5', 'Bootstrap', 'CSS', 'Node.js', 'C', 'C++', 'Java', 'Apache', 'Git', 'Shell', 'Perl', 'AWS', 'Linux'];
+  var langIndex = 0;
+  var langsEnd = langs.length - 1;
+  function changeLang() {
+    if(langIndex < langsEnd) {
+      langIndex ++;
+    } else {
+      langIndex = 0;
+    }
+    $("#lang").html(langs[langIndex]);
+  }
+
+  function loopCall() {
+    changeLang();
+    changeTitle();
+  }
+
+  var loopSpeed = 1000; //ms
+  setInterval(loopCall, loopSpeed);
+  </script>
+</body>
+</html>
