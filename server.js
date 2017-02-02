@@ -7,8 +7,15 @@ var path = require('path');
 
 var sslKey = fs.readFileSync('letsencrypt/privkey.pem', 'utf8');
 var sslCert = fs.readFileSync('letsencrypt/cert.pem', 'utf8');
+var ca = [fs.readFileSync('letsencrypt/chain.pem', 'utf8'), fs.readFileSync('letsencrypt/fullchain.pem', 'utf8')]; 
 
-var creds = { key: sslKey, cert: sslCert };
+
+var creds = {
+  key: sslKey,
+  cert: sslCert,
+  ca: ca
+};
+
 var app = express();
 app.use(compression());
 
