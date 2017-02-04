@@ -40,8 +40,7 @@
   NJ Web Solutions provides a full package of technical services and support so you know who to contact when you need something done
   <br/><br/><br/>
   <div class="aq">
-  Offering a wide range of Web, Software, and IT services
-    <br/>&nbsp;
+    Offering a wide range of Web, Software, and IT services
   </div>`;
 
   var webText = `
@@ -54,7 +53,6 @@
   <br/><br/>
   <div class="aq">
     Packaged deals save you time and money
-    <br/>&nbsp;
   </div>`;
 
   var appsText = `
@@ -63,8 +61,7 @@
   <br/>
   NJ Web Solutions is capable of delivering any application you have in mind
   <br/><br/>
-  Pricing and time to develop varies with complexity
-  <br/>&nbsp;`;
+  Pricing and time to develop varies with complexity`;
 
   var securityText = `
   <h1>Security</h1>
@@ -74,7 +71,6 @@
   <br/><br/>
   <div class="aq">
     Don't leave your business vulnerable
-    <br/>&nbsp;
   </div>`;
 
   var hostingText = `
@@ -84,7 +80,6 @@
   <br/><br/>
   <div class="aq">
     Pay less to host your website
-    <br/>&nbsp;
   </div>`;
 
   var backupsText = `
@@ -96,7 +91,6 @@
   <br/><br/>
   <div class="aq">
     Don't risk losing or leaking your precious data
-    <br/>&nbsp;
   </div>`;
 
   var consultingText = `
@@ -106,7 +100,6 @@
   <br/><br/>
   <div class="aq">
     Have less code to mantain and pay less
-    <br/>&nbsp;
   </div>`;
 
   function home() {
@@ -210,8 +203,12 @@
     font-family: 'Aldrich';
     background: url(background.jpg);
   }
+  h1 {
+    font-size: calc(20px + 5vw);
+  }
   h1, h2, h3, .navbar-brand, .popover {
     font-weight: bold;
+    padding-left: 1%;
   }
   h3, #lang {
     color: white;
@@ -220,9 +217,9 @@
     color: aqua;
   }
   h2, .container-fluid {
-    color:lightgray
+    color: lightgray
   }
-  #pageText, .container, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus{
+  #pageText, .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus{
     background-color:rgba(0, 0, 0, 0.8);
   }
   a, a:hover, a:focus, .popover {
@@ -235,10 +232,20 @@
   }
   #pageText {
     max-width: 95%;
+    font-size: 20px;
+    padding: 5%;
+    padding-top: 2%;
   }
   .pager {
     margin: 0 auto;
     max-width: 95%;
+    padding: 3px;
+  }
+  #smallgap {
+    height: 10px;
+  }
+  .navbar-inverse .navbar-brand {
+    padding: 5%;
   }
   </style>
 
@@ -268,7 +275,7 @@
     </div>
   </nav>
   <br/>
-  <div class="container-fluid img-rounded" id="pageText" style="font-size:20px;">
+  <div class="container-fluid img-rounded" id="pageText">
     <script>
     switch(location.pathname) {
       case '/web':
@@ -294,8 +301,8 @@
     }
     </script>
   </div>
-  <br/>
-  <ul class="pager">
+  <div id=smallgap>&nbsp;</div>
+  <ul class="pager img-rounded navbar-inverse">
     <li class="previous" onclick="prevPage();"><a onclick="rollTop();">&ensp;<span class="glyphicon glyphicon-step-backward"></span>&ensp;</a></li>
     <li class="next" onclick="nextPage();"><a onclick="rollTop();">&ensp;<span class="glyphicon glyphicon-step-forward"></span>&ensp;</a></li>
   </ul>
@@ -316,7 +323,7 @@
   <script>
   function rollTop() {
     $('html, body').animate({
-      scrollTop:$('#pageText').offset().top
+      scrollTop: $('#pageText').offset().top - 10
     }, 500);
   }
 
