@@ -202,9 +202,13 @@
   body {
     font-family: 'Aldrich';
     background: url(background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
   }
   h1 {
     font-size: calc(20px + 5vw);
+    text-shadow: 7px 7px black;
   }
   h2 {
     font-size: calc(15px + 4vw);
@@ -217,6 +221,7 @@
   }
   h2, h3 {
     padding-left: 1%;
+    text-shadow: 5px 5px black;
   }
   h3, #lang {
     color: white;
@@ -231,7 +236,7 @@
     background-color:rgba(0, 0, 0, 0.8);
   }
   a, a:hover, a:focus, .popover {
-    color: black;
+    color: darkslategray;
   }
   #logo {
     position: fixed;
@@ -240,7 +245,7 @@
   }
   #pageText {
     max-width: 95%;
-    font-size: 20px;
+    font-size: calc(12px + 1.5vw);
     padding: 5%;
     padding-top: 2%;
   }
