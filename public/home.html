@@ -11,6 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script>
+  'use strict';
+
   function hoverPop() {
     $('[data-toggle="popover"]').popover({
       placement: 'auto',
@@ -101,6 +103,9 @@
   <div class="aq">
     Have less code to mantain and pay less
   </div>`;
+
+  var nextPage;
+  var prevPage;
 
   function home() {
     $("#pageText").html(homeText);
