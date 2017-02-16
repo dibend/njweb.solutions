@@ -39,69 +39,95 @@
   <br/><br/>
   <h3>Technical Solutions for all your Business Needs.</h3>
   <br/><br/>
-  NJ Web Solutions provides a full package of technical services and support so you know who to contact when you need something done
+  NJ Web Solutions provides a full package of technical services and support so you know who to contact for any of your business' digital needs.
   <br/><br/><br/>
   <div class="aq">
-    Offering a wide range of Web, Software, and IT services
+    Offering a wide range of Web, Software, and IT services.
   </div>`;
 
   var webText = `
   <h1>Web Services<h1/>
   <h3>Design&nbsp;&rarr; Development&nbsp;&rarr; Hosting&nbsp&rarr; Security&nbsp;&rarr; Support</h3>
   <br/>
-  NJ Web Solutions provides a full range of web services so you know who to turn to for help with your web products
+  NJ Web Solutions provides a full range of web services so you know who to turn to for help with all your web products.
   <br/><br/>
-  Offering design, development, hosting, webmastering, security services, and support for websites or webapps
+  Offering design, development, hosting, webmastering, security services, and support for websites or webapps.
   <br/><br/>
   <div class="aq">
-    Packaged deals save you time and money
+    Packaged deals save you time and money.
   </div>`;
 
   var appsText = `
   <h1>Application Development<h1/>
   <h3>iOS &bull; Android &bull; Smart TV &bull; Alexa &bull; Desktop</h3>
   <br/>
-  NJ Web Solutions is capable of delivering any application you have in mind
+  NJ Web Solutions is capable of delivering any application you have in mind.
   <br/><br/>
-  Pricing and time to develop varies with complexity`;
+  Pricing and time to develop varies with complexity.
+  <br/><br/>
+  <div class="aq">
+    Modernize your business with a custom app.
+  </div>`;
 
   var securityText = `
   <h1>Security</h1>
   <h3>Assessment. Prevention. Monitoring. Support.</h3>
   <br/>
-  NJ Web Solutions can help you take steps to prevent a wide range of cyber attacks
+  NJ Web Solutions can help you take steps to prevent a wide range of cyber attacks.
   <br/><br/>
   <div class="aq">
-    Don't leave your business vulnerable
+    Don't leave your business vulnerable.
   </div>`;
 
   var hostingText = `
   <h1>Hosting</h1>
   <br/>
-  NJ Web Solutions offers fair and competetively priced hosting solutions for fast, easy, and secure access to your website, webapp, or API
+  NJ Web Solutions offers fair and competetively priced hosting solutions for fast, easy, and secure access to your website, webapp, or API.
   <br/><br/>
   <div class="aq">
-    Pay less to host your website
+    Pay less to host your website.
   </div>`;
 
   var backupsText = `
   <h1>Backups</h1>
   <br/>
-  Never worry about data loss or leakage with Advanced Backup Solutions
+  You never have to worry about data loss or leakage with our advanced backup solutions.
   <br/><br/>
-  NJ Web Solutions takes all the necessary steps to secure your data from redundancy to encryption
+  NJ Web Solutions takes all the necessary steps to secure your data from redundancy to encryption.
   <br/><br/>
   <div class="aq">
-    Don't risk losing or leaking your precious data
+    Don't risk losing or leaking your precious data.
   </div>`;
 
   var consultingText = `
   <h1>Consulting</h1>
   <br/>
-  NJ Web Solutions can finish your new or exisiting software project faster and for less by leveraging the latest open source technologies
+  NJ Web Solutions can finish your new or exisiting software project faster and for less by leveraging the latest open source technologies.
   <br/><br/>
   <div class="aq">
-    Have less code to mantain and pay less
+    Have less code to mantain and pay less.
+  </div>`;
+
+  var adsText = `
+  <h1>Advertising</h1>
+  <br/>
+  Strategic advertising can dramatically expand your business by targeting the right audience.
+  <br/><br/>
+  We'll help guide you through the latest digital advertising solutions so you can leave great impressions on potential customers.
+  <br/><br/>
+  <div class="aq">
+    Reach individuals looking for your products or services.
+  </div>`;
+
+  var seoText = `
+  <h1>Search Engine Optimization</h1>
+  <br/>
+  Search Engine Optimization is a vital part of bringing traffic and attention to your website and business.
+  <br/><br/>
+  We can help you rank higher on all the major search engines so your business can get more exposure and become more successful.
+  <br/><br/>
+  <div class="aq">
+    Appear before the competition on search results.
   </div>`;
 
   var nextPage;
@@ -194,13 +220,38 @@
     hoverPop();
     history.pushState(null, null, '/consulting');
     nextPage = function() { 
-      home();
+      ads();
     };
     prevPage = function() { 
       backups();
     };
   }
 
+  function ads() {
+    $("#pageText").html(adsText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/ads');
+    nextPage = function() { 
+      seo();
+    };
+    prevPage = function() { 
+      consulting();
+    };
+  }
+
+  function seo() {
+    $("#pageText").html(seoText);
+    $(".active").attr('class', '');
+    hoverPop();
+    history.pushState(null, null, '/seo');
+    nextPage = function() { 
+      home();
+    };
+    prevPage = function() { 
+      ads();
+    };
+  }
   </script>
 
   <style>
@@ -288,6 +339,8 @@
             <li><a onclick="hosting();">Hosting</a></li>
             <li><a onclick="backups();">Backups</a></li>
             <li><a onclick="consulting();">Consulting</a></li>
+            <li><a onclick="ads();">Advertising</a></li>
+            <li><a onclick="seo();">SEO</a></li>
           </ul>
         </li>
       </ul>
@@ -298,7 +351,7 @@
     <script>
     'use strict';
 
-    switch(location.pathname) {
+    switch(location.pathname.toLowerCase()) {
       case '/web':
         web();
         break;
@@ -316,6 +369,12 @@
         break;
       case '/consulting':
         consulting();
+        break;
+      case '/ads':
+        ads();
+        break;
+      case '/seo':
+        seo();
         break;
       default:
         home();
