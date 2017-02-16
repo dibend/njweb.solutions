@@ -1,7 +1,9 @@
-http://njweb.solutions/
-http://njweb.solutions/web
-http://njweb.solutions/apps
-http://njweb.solutions/security
-http://njweb.solutions/hosting
-http://njweb.solutions/backups
-http://njweb.solutions/consulting
+https://njweb.solutions/
+https://njweb.solutions/web
+https://njweb.solutions/apps
+https://njweb.solutions/security
+https://njweb.solutions/hosting
+https://njweb.solutions/backups
+https://njweb.solutions/consulting
+https://njweb.solutions/ads
+https://njweb.solutions/seo
